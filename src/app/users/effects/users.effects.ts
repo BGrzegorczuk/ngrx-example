@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect} from '@ngrx/effects';
-import {GetUsersSuccess, UserActionTypes} from '../actions/users.actions';
+import {GetUsersSuccess, IGetUsersRequestPayload, UserActionTypes} from '../actions/users.actions';
 import {UsersService} from '../users.service';
+import {IAction} from '../../interfaces/ngrx';
 
 
 @Injectable()
@@ -14,7 +15,7 @@ export class UsersEffects {
 
   @Effect() getUsers$ = this.actions$
     .ofType(UserActionTypes.GET_USERS_REQUEST)
-    .switchMap(action => this.usersService.getUsers(1, 5)
+    .switchMap((action: IAction<IGetUsersRequestPayload>) => this.usersService.getUsers(action.payload.page, action.payload.limit)
       .map(users => new GetUsersSuccess(users))
       // .catchError()
     );

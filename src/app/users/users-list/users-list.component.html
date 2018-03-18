@@ -1,0 +1,16 @@
+<article>
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First name</th>
+      <th scope="col">Last name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr app-users-list-item *ngFor="let user of users; let i = index" [user]="user" [index]="i+1"></tr>
+    </tbody>
+  </table>
+</article>
