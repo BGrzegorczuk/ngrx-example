@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {IUser} from '../models/user';
+import {IUser} from '../models/user.model';
 import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
 import {IUsersState} from '../store/reducers';
@@ -9,8 +9,8 @@ import * as userActions from '../store/actions/users.actions';
 
 @Component({
   selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.sass'],
+  templateUrl: './users.container.html',
+  styleUrls: ['./users.container.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent implements OnInit {
@@ -24,11 +24,11 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUsers(this.page, this.resultsPerPage);
-    this.users$.subscribe(users => console.log('users', users));
+    // this.getUsers(this.page, this.resultsPerPage);
+    // this.users$.subscribe(users => console.log('users', users));
   }
 
-  getUsers(page, limit) {
-    this.store.dispatch(new userActions.GetUsersRequest({ page, limit }));
-  }
+  // getUsers(page, limit) {
+  //   this.store.dispatch(new userActions.GetUsersRequest({ page, limit }));
+  // }
 }

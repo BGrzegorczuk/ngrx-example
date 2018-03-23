@@ -1,4 +1,4 @@
-import {IUser} from '../../models/user';
+import {IUser} from '../../models/user.model';
 import {UserActions, UserActionTypes} from '../actions/users.actions';
 
 

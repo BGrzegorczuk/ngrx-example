@@ -10,7 +10,7 @@ import {UsersModule} from './users/users.module';
 import {StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {UsersEffects} from './users/store/effects/users.effects';
-import {reducers} from './reducers';
+import {metaReducers, reducers} from './store/reducers';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
@@ -20,8 +20,13 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UsersEffects]),
+
+    StoreModule.forRoot({}, { metaReducers }),
+    EffectsModule.forRoot([ ]),
+
+    // StoreModule.forRoot(reducers),
+    // EffectsModule.forRoot([UsersEffects]),
+
     StoreDevtoolsModule.instrument({}),
     NgbModule.forRoot(),
     UsersModule,

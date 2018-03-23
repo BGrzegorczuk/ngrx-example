@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {usersData} from '../../db/users';
+import {usersData} from '../../../db/users';
+
 
 @Injectable()
 export class UsersService {

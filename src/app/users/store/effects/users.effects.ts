@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect} from '@ngrx/effects';
 import {GetUsersSuccess, IGetUsersRequestPayload, UserActionTypes} from '../actions/users.actions';
-import {UsersService} from '../../users.service';
+import {UsersService} from '../../services/users.service';
 import {IAction} from '../../../interfaces/ngrx';
+import {Observable} from 'rxjs/Observable';
 
 
 @Injectable()
@@ -13,13 +14,24 @@ export class UsersEffects {
     private actions$: Actions
   ) {}
 
+  // @Effect() navigateToUsers$ = this.actions.ofType(ROUTER_NAVIGATION)
+
   @Effect() getUsers$ = this.actions$
     .ofType(UserActionTypes.GET_USERS_REQUEST)
-    .switchMap((action: IAction<IGetUsersRequestPayload>) => this.usersService.getUsers(action.payload.page, action.payload.limit)
-      .map(users => new GetUsersSuccess({
-        list: users,
-        total: users.length
-      }))
-      // .catchError()
-    );
+    .switchMap((action: IAction<IGetUsersRequestPayload>) => {
+
+      return this.usersService.getUsers(action.payload.page, action.payload.limit)
+        .map(users => new GetUsersSuccess({
+          list: users,
+          total: users.length
+        }))
+        .catch((err) => {
+          console.error('Error from UsersEffect:', err);
+          return Observable.of({});
+        })
+    });
+
+
+
+
 }
