@@ -17,7 +17,7 @@ import {EffectsModule} from '@ngrx/effects';
     CommonModule,
     UsersRoutingModule,
     StoreModule.forFeature('users', reducers.usersReducer),
-    EffectsModule.forFeature([UsersEffects]),
+    EffectsModule.forFeature([UsersEffects])
   ],
   declarations: [UsersComponent, UsersListComponent, UsersListItemComponent],
   providers: [UsersService]

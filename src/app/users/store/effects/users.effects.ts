@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect} from '@ngrx/effects';
-import {GetUsersSuccess, IGetUsersRequestPayload, UserActionTypes} from '../actions/users.actions';
+import * as userActions from '../actions/users.actions';
 import {UsersService} from '../../services/users.service';
 import {IAction} from '../../../interfaces/ngrx';
 import {Observable} from 'rxjs/Observable';
@@ -17,11 +17,11 @@ export class UsersEffects {
   // @Effect() navigateToUsers$ = this.actions.ofType(ROUTER_NAVIGATION)
 
   @Effect() getUsers$ = this.actions$
-    .ofType(UserActionTypes.GET_USERS_REQUEST)
-    .switchMap((action: IAction<IGetUsersRequestPayload>) => {
+    .ofType(userActions.UserActionTypes.GET_USERS_REQUEST)
+    .switchMap((action: IAction<userActions.IGetUsersRequestPayload>) => {
 
       return this.usersService.getUsers(action.payload.page, action.payload.limit)
-        .map(users => new GetUsersSuccess({
+        .map(users => new userActions.GetUsersSuccess({
           list: users,
           total: users.length
         }))

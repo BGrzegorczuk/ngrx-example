@@ -10,8 +10,10 @@ import {UsersModule} from './users/users.module';
 import {StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {UsersEffects} from './users/store/effects/users.effects';
-import {metaReducers, reducers} from './store/reducers';
+import {metaReducers, reducers} from './store/reducers/index';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {RouterStateSerializer, StoreRouterConnectingModule} from '@ngrx/router-store';
+import {CustomSerializer} from './store/reducers/router.reducer';
 
 
 @NgModule({
@@ -20,19 +22,21 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
   ],
   imports: [
     BrowserModule,
-
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([ ]),
-
-    // StoreModule.forRoot(reducers),
-    // EffectsModule.forRoot([UsersEffects]),
-
     StoreDevtoolsModule.instrument({}),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router' // name of reducer key
+    }),
     NgbModule.forRoot(),
     UsersModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RouterStateSerializer, useClass: CustomSerializer
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
