@@ -1,4 +1,4 @@
-import {IUsersState, usersReducer} from './users/users.reducer';
+import {IUsersState, usersReducer} from './users/store/reducers/users.reducer';
 import {ActionReducerMap} from '@ngrx/store';
 
 export interface IAppState {

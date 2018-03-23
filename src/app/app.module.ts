@@ -9,7 +9,7 @@ import {UsersModule} from './users/users.module';
 
 import {StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import {UsersEffects} from './users/effects/users.effects';
+import {UsersEffects} from './users/store/effects/users.effects';
 import {reducers} from './reducers';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 

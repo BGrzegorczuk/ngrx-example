@@ -1,6 +1,6 @@
 // counter.actions.ts
 import { Action } from '@ngrx/store';
-import {IUser} from '../models/user';
+import {IUser} from '../../models/user';
 
 export enum UserActionTypes {
   GET_USERS_REQUEST = 'users/GET_USERS_REQUEST',
@@ -18,9 +18,14 @@ export class GetUsersRequest implements Action {
   constructor(public payload: IGetUsersRequestPayload) {}
 }
 
+export interface IGetUsersSuccessPayload {
+  list: IUser[];
+  total: number;
+}
+
 export class GetUsersSuccess implements Action {
   readonly type = UserActionTypes.GET_USERS_SUCCESS;
-  constructor(public payload: IUser[]) {}
+  constructor(public payload: IGetUsersSuccessPayload) {}
 }
 
 export class GetUsersFailure implements Action {
