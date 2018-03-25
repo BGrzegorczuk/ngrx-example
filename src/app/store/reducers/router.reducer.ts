@@ -1,20 +1,19 @@
 import {Params, RouterStateSnapshot} from '@angular/router';
-import {routerReducer, RouterReducerState, RouterStateSerializer} from '@ngrx/router-store';
-import {ActionReducerMap} from '@ngrx/store';
+import {RouterReducerState, RouterStateSerializer} from '@ngrx/router-store';
 
 
-export interface RouterStateUrl {
+export interface IRouterStateUrl {
   url: string;
   params: Params;
   queryParams: Params;
 }
 
-export interface State {
-  router: RouterReducerState<RouterStateUrl>;
+export interface IRouterState {
+  router: RouterReducerState<IRouterStateUrl>;
 }
 
-export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
-  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
+export class CustomSerializer implements RouterStateSerializer<IRouterStateUrl> {
+  serialize(routerState: RouterStateSnapshot): IRouterStateUrl {
     let route = routerState.root;
 
     while (route.firstChild) {
@@ -29,7 +28,3 @@ export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
     return { url, params, queryParams };
   }
 }
-
-export const reducers: ActionReducerMap<State> = {
-  router: routerReducer
-};

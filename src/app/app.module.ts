@@ -22,7 +22,7 @@ import {CustomSerializer} from './store/reducers/router.reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}, { metaReducers }),
+    StoreModule.forRoot(reducers, { }), // TODO: add meta reducer
     EffectsModule.forRoot([ ]),
     StoreDevtoolsModule.instrument({}),
     StoreRouterConnectingModule.forRoot({

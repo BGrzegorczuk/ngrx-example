@@ -24,11 +24,11 @@ export class UsersComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getUsers(this.page, this.resultsPerPage);
-    // this.users$.subscribe(users => console.log('users', users));
+    this.getUsers(this.page, this.resultsPerPage);
+    this.users$.subscribe(users => console.log('users', users));
   }
 
-  // getUsers(page, limit) {
-  //   this.store.dispatch(new userActions.GetUsersRequest({ page, limit }));
-  // }
+  getUsers(page, limit) {
+    this.store.dispatch(new userActions.GetUsersRequest({ page, limit }));
+  }
 }

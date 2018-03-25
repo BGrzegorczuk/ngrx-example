@@ -1,7 +1,9 @@
-import {IUsersState, usersReducer} from '../../users/store/reducers/users.reducer';
 import {ActionReducer, ActionReducerMap, MetaReducer} from '@ngrx/store';
+import {routerReducer} from '@ngrx/router-store';
 
-export interface IAppState {}
+// TODO: dlaczego to jest puste????
+export interface IAppState {
+}
 
 // console.log all actions
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -15,5 +17,5 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
 export const metaReducers: MetaReducer<any>[] = [debug];
 
 export const reducers: ActionReducerMap<IAppState> = {
-
+  router: routerReducer
 };
