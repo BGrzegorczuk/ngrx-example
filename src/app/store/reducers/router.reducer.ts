@@ -8,10 +8,6 @@ export interface IRouterStateUrl {
   queryParams: Params;
 }
 
-export interface IRouterState {
-  router: RouterReducerState<IRouterStateUrl>;
-}
-
 export class CustomSerializer implements RouterStateSerializer<IRouterStateUrl> {
   serialize(routerState: RouterStateSnapshot): IRouterStateUrl {
     let route = routerState.root;

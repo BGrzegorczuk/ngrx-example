@@ -1,8 +1,10 @@
 import {ActionReducer, ActionReducerMap, MetaReducer} from '@ngrx/store';
-import {routerReducer} from '@ngrx/router-store';
+import {routerReducer, RouterReducerState} from '@ngrx/router-store';
+import {IRouterStateUrl} from './router.reducer';
 
-// TODO: dlaczego to jest puste????
+
 export interface IAppState {
+  router: RouterReducerState<IRouterStateUrl>
 }
 
 // console.log all actions
