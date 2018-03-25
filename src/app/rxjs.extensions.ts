@@ -5,4 +5,5 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/do';
 

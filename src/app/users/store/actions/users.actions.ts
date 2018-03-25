@@ -1,12 +1,13 @@
-// counter.actions.ts
 import {IUser} from '../../models/user.model';
 import {IAction} from '../../../interfaces/ngrx';
 
+// USER ACTIONS
 export enum UserActionTypes {
   GET_USERS_REQUEST = 'users/GET_USERS_REQUEST',
   GET_USERS_SUCCESS = 'users/GET_USERS_SUCCESS',
   GET_USERS_FAILURE = 'users/GET_USERS_FAILURE',
 }
+
 
 export interface IGetUsersRequestPayload {
   page: number;

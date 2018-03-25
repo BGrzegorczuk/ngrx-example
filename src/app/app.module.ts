@@ -14,6 +14,7 @@ import {metaReducers, reducers} from './store/reducers/index';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {RouterStateSerializer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {CustomSerializer} from './store/reducers/router.reducer';
+import {effects} from './store/effects';
 
 
 @NgModule({
@@ -22,8 +23,8 @@ import {CustomSerializer} from './store/reducers/router.reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers, { }), // TODO: add meta reducer
-    EffectsModule.forRoot([ ]),
+    StoreModule.forRoot(reducers, { metaReducers }), // TODO: add meta reducer
+    EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({}),
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router' // name of reducer key
