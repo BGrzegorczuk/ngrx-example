@@ -13,7 +13,7 @@ export class UsersService {
 
   // TODO: handle errors with catchError operator
   getUsers(page, limit) {
-    return this.http.get<IUser[]>(`${this.baseApiUrl}/users/`);
+    return this.http.get<IUser[]>(`${this.baseApiUrl}/users?_page=${page}&_limit=${limit}`);
   }
 
 }
