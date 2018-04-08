@@ -15,6 +15,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {RouterStateSerializer, StoreRouterConnectingModule} from '@ngrx/router-store';
 import {CustomSerializer} from './store/reducers/router.reducer';
 import {effects} from './store/effects';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {effects} from './store/effects';
     NgbModule.forRoot(),
     UsersModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     {

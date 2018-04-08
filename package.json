@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
+    "json-server": "json-server --watch src/db.json --port 3000",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
