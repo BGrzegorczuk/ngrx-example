@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
     this.users$.subscribe(users => console.log('users', users));
   }
 
-  getUsers(page, limit) {
+  getUsers(page: number, limit: number) {
     this.store.dispatch(new userActions.GetUsersRequest({ page, limit }));
   }
 }

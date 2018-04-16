@@ -12,7 +12,7 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   // TODO: handle errors with catchError operator
-  getUsers(page, limit) {
+  getUsers(page: number, limit: number) {
     return this.http.get<IUser[]>(`${this.baseApiUrl}/users?_page=${page}&_limit=${limit}`);
   }
 

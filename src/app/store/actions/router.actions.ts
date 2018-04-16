@@ -21,11 +21,11 @@ export class Go implements IAction<IRouterGoPayload> {
   constructor(public payload: IRouterGoPayload) {}
 }
 
-export class Back implements IAction<null> {
+export class Back implements IAction {
   readonly type = RouterActionTypes.ROUTER_BACK;
 }
 
-export class Forward implements IAction<null> {
+export class Forward implements IAction {
   readonly type = RouterActionTypes.ROUTER_FORWARD;
 }
 
