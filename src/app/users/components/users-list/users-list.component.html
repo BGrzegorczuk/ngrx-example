@@ -10,7 +10,12 @@
     </tr>
     </thead>
     <tbody>
-      <tr app-users-list-item *ngFor="let user of users; let i = index" [user]="user" [index]="i+1"></tr>
+      <tr app-users-list-item
+          *ngFor="let user of users; let i = index"
+          [user]="user"
+          [index]="i+1"
+          (click)="onUserSelect(user, i)"
+      ></tr>
     </tbody>
   </table>
 </article>

@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label [for]="id">{{ label }}:</label>
+  <input
+    [id]="id"
+    [value]="value"
+    (change)="onChange($event)"
+    (blur)="onBlur()"
+  />
+</div>

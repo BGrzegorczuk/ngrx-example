@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, ChangeDetectionStrategy} from '@angular/core';
+import {Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import {IUser} from '../../models/user.model';
 
 @Component({
@@ -12,9 +12,8 @@ export class UsersListItemComponent implements OnInit {
   @Input() user: IUser;
   @Input() index: number;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
