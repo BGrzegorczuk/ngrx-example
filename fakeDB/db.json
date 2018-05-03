@@ -1,0 +1,148 @@
+{
+    "users": [
+        {
+            "email": "Ezra.Wisozk@hotmail.com",
+            "phone_number": "433-468-4458",
+            "location": {
+                "street": "350 Jack Plaza",
+                "city": "South Maximilianburgh",
+                "state": "Connecticut",
+                "postcode": "14077"
+            },
+            "username": "Geraldine_Zemlak",
+            "password": "dr0ZKfMWHNftGRD",
+            "first_name": "Mertie",
+            "last_name": "Ferry",
+            "title": "Ms.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Viva.Robel@hotmail.com",
+            "phone_number": "044-908-3043",
+            "location": {
+                "street": "900 Lewis Extension",
+                "city": "Joeyshire",
+                "state": "Alaska",
+                "postcode": "35220-8374"
+            },
+            "username": "Lavina8",
+            "password": "_FNZYKd5rWZjfgZ",
+            "first_name": "Arvid",
+            "last_name": "Paucek",
+            "title": "Mr.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Giuseppe_Goyette@yahoo.com",
+            "phone_number": "443-758-7389",
+            "location": {
+                "street": "85981 Batz Ports",
+                "city": "Lake Tevinville",
+                "state": "Arizona",
+                "postcode": "41198-5689"
+            },
+            "username": "Theodore_Swift13",
+            "password": "YjsVN3BGIGfGV8d",
+            "first_name": "Makenna",
+            "last_name": "Muller",
+            "title": "Dr.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Adah2@yahoo.com",
+            "phone_number": "066-227-6112",
+            "location": {
+                "street": "7838 Gleason Grove",
+                "city": "South Elijah",
+                "state": "New Hampshire",
+                "postcode": "67786"
+            },
+            "username": "Jarod_Franecki",
+            "password": "tJuXvtCyREO6DJg",
+            "first_name": "Daphney",
+            "last_name": "Jerde",
+            "title": "Ms.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Rosemary_Dooley@hotmail.com",
+            "phone_number": "428-441-5979",
+            "location": {
+                "street": "99125 Jean Lakes",
+                "city": "West Hoytburgh",
+                "state": "North Carolina",
+                "postcode": "83727-3283"
+            },
+            "username": "Neva42",
+            "password": "KBCBaWVry2rDoMM",
+            "first_name": "Pete",
+            "last_name": "Towne",
+            "title": "Mrs.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Carolyne44@yahoo.com",
+            "phone_number": "468-682-6255",
+            "location": {
+                "street": "63942 Schoen Lights",
+                "city": "Lake Jaylen",
+                "state": "California",
+                "postcode": "37773"
+            },
+            "username": "Kane.Hane",
+            "password": "GfSY3cOuNksBX0v",
+            "first_name": "Virgil",
+            "last_name": "Treutel",
+            "title": "Miss",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Stanford.Breitenberg89@yahoo.com",
+            "phone_number": "050-438-6609",
+            "location": {
+                "street": "2196 Roberts Place",
+                "city": "Lake Clovisfort",
+                "state": "North Dakota",
+                "postcode": "03704-1046"
+            },
+            "username": "Kayla.Lemke33",
+            "password": "rcnq7Fko50aVXcb",
+            "first_name": "Bette",
+            "last_name": "Hand",
+            "title": "Ms.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Mable39@yahoo.com",
+            "phone_number": "253-920-2099",
+            "location": {
+                "street": "174 Nikolaus Extension",
+                "city": "East Mia",
+                "state": "Oklahoma",
+                "postcode": "11166-2323"
+            },
+            "username": "Raoul.Schaden47",
+            "password": "91YwHCzAQ_Iwdv_",
+            "first_name": "Anastacio",
+            "last_name": "Feeney",
+            "title": "Miss",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        },
+        {
+            "email": "Cornelius_Schultz@gmail.com",
+            "phone_number": "466-137-7392",
+            "location": {
+                "street": "0850 McClure Meadow",
+                "city": "Port Kennychester",
+                "state": "Maryland",
+                "postcode": "50497"
+            },
+            "username": "Florence12",
+            "password": "ja8VSU5jAWt3pPm",
+            "first_name": "Kaelyn",
+            "last_name": "Johns",
+            "title": "Mrs.",
+            "picture": "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
+        }
+    ]
+}

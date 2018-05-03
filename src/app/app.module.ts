@@ -17,6 +17,7 @@ import {UsersEffects} from './users/store/effects/users.effects';
 import {metaReducers, reducers} from './store/reducers/index';
 import {CustomSerializer} from './store/reducers/router.reducer';
 import {effects} from './store/effects';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -36,6 +37,7 @@ import {effects} from './store/effects';
     NgbModule.forRoot(),
     UsersModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     {
