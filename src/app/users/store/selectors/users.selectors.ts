@@ -1,4 +1,4 @@
-import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {createFeatureSelector} from '@ngrx/store';
 import * as fromUsers from '../';
 
 export const selectUsersState = createFeatureSelector<fromUsers.IUsersState>('users');
