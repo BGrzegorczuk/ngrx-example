@@ -17,10 +17,10 @@ export class UsersComponent implements OnInit {
 
   users$: Observable<IUser[]>;
   private page = 1;
-  private resultsPerPage = 5;
+  private resultsPerPage = 10;
 
   constructor(private store: Store<IUsersState>) {
-    this.users$ = this.store.select(userSelectors.getUserList); // only initializing users variable as an Observable
+    this.users$ = this.store.select(userSelectors.selectAllUsers); // only initializing users variable as an Observable
   }
 
   ngOnInit() {

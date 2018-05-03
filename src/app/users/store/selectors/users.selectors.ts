@@ -1,9 +1,15 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store';
-import {IUsersState} from '../reducers';
+import * as fromUsers from '../';
 
-export const getUsersState = createFeatureSelector<IUsersState>('users');
+export const selectUsersState = createFeatureSelector<fromUsers.IUsersState>('users');
 
-export const getUserList = createSelector(
-  getUsersState,
-  (state: IUsersState) => state.list
-);
+export const {
+  // select the array of user ids
+  selectIds: selectUserIds,
+  // select the dictionary of user entities
+  selectEntities: selectUserEntities,
+  // select the array of users
+  selectAll: selectAllUsers,
+  // select the total user count
+  selectTotal: selectUserTotal,
+} = fromUsers.usersAdapter.getSelectors(selectUsersState);
