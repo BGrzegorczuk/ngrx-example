@@ -23,7 +23,8 @@ export class UserFormComponent implements OnInit {
   createForm() {
     this.userForm = this.fb.group({
       email: 'jakiś email',
-      gender: 'jakiś gender'
+      gender: 'jakiś gender',
+      range: '0|10'
     });
   }
 

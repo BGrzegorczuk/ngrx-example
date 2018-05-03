@@ -1,5 +1,5 @@
-import {Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {Component, forwardRef, Input, OnInit, Optional} from '@angular/core';
+import {ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -13,11 +13,13 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     }
   ]
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor, OnInit {
 
-  @Input() label = '';
+  @Input() form: FormGroup;
   @Input() name = '';
-  @Input() id = '';
+  @Input() label? = '';
+  @Input() type? = '';
+  id: string;
   _value = '';
 
   get value() {
@@ -29,13 +31,29 @@ export class InputComponent implements ControlValueAccessor {
     this.propagateChange(this._value);
   }
 
+  get invalid(): boolean {
+    return false;
+  }
+
+  get control(): FormControl {
+    return this.form.get(this.name) as FormControl;
+  }
+
   constructor() { }
+
+  ngOnInit() {
+    this.id = `${this.name}Id`;
+    this.type || (this.type = 'text');
+    console.log('this', this);
+    this.writeValue(this.control.value);
+  }
 
   propagateChange = (_: any) => {};
 
   propagateTouched = () => {};
 
   writeValue(value: string | null) {
+    console.log('writeValue', value);
     value ? this.value = value : null;
   }
 

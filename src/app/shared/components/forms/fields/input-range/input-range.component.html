@@ -1,0 +1,14 @@
+<div class="form-group" [formGroup]="form">
+  <label *ngIf="label" [for]="id">{{ label }}:</label>
+  <div>
+    <div>
+      <!--<app-input name="{{name}}_from"></app-input>-->
+      <input [id]="id" [value]="value_from"/>
+    </div>
+    <div>
+      <!--<app-input name="{{name}}_to"></app-input>-->
+      <input [id]="id" [value]="value_to"/>
+    </div>
+  </div>
+  <input type="hidden" [value]="value" [formControlName]="name">
+</div>
