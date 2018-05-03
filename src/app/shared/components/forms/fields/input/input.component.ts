@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, OnInit, Optional} from '@angular/core';
+import {Component, forwardRef, Input, OnInit } from '@angular/core';
 import {ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -48,26 +48,25 @@ export class InputComponent implements ControlValueAccessor, OnInit {
     this.writeValue(this.control.value);
   }
 
-  propagateChange = (_: any) => {};
+  propagateChange: Function = (_: any) => {};
 
-  propagateTouched = () => {};
+  propagateTouched: Function = () => {};
 
   writeValue(value: string | null) {
     console.log('writeValue', value);
     value ? this.value = value : null;
   }
 
-  registerOnChange(fn) {
+  registerOnChange(fn: Function) {
     this.propagateChange = fn;
   }
 
-  registerOnTouched(fn) {
+  registerOnTouched(fn: Function) {
     this.propagateTouched = fn;
   }
 
   onChange(event: Event) {
-    const newValue = (<HTMLInputElement>event.target).value;
-    this.value = newValue;
+    this.value = (<HTMLInputElement>event.target).value;
   }
 
   onBlur() {

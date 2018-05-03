@@ -16,15 +16,13 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-
     this.userForm.valueChanges.subscribe(form => console.log('form changed', form));
   }
 
   createForm() {
     this.userForm = this.fb.group({
       email: 'jakiś email',
-      gender: 'jakiś gender',
-      range: '0|10'
+      gender: 'jakiś gender'
     });
   }
 

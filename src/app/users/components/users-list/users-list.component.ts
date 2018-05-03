@@ -20,7 +20,7 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {}
 
-  onUserSelect(user, index) {
+  onUserSelect(user: IUser, index: number) {
     console.log('onUserSelect', user);
     this.store.dispatch(new RouterAction.Go({ path: [ 'user', index ] }));
   }
