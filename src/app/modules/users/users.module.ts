@@ -9,12 +9,14 @@ import { UsersService } from './services/users.service';
 
 import {StoreModule} from '@ngrx/store';
 import * as reducers from './store/reducers';
-import {UsersEffects} from './store/effects/users.effects';
+import {UsersEffects} from './store/effects';
 import {EffectsModule} from '@ngrx/effects';
+import {LoaderModule} from '../../shared/components/loader/loader.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    LoaderModule,
     UsersRoutingModule,
     StoreModule.forFeature('users', reducers.usersReducer),
     EffectsModule.forFeature([UsersEffects])

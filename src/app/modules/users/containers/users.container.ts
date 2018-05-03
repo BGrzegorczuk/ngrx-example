@@ -16,6 +16,7 @@ import * as userActions from '../store/actions/users.actions';
 export class UsersComponent implements OnInit {
 
   users$: Observable<IUser[]>;
+  users: IUser[];
   private page = 1;
   private resultsPerPage = 5;
 
@@ -25,7 +26,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers(this.page, this.resultsPerPage);
-    this.users$.subscribe(users => console.log('users', users));
+    this.users$.subscribe(users => this.users);
   }
 
   getUsers(page: number, limit: number) {

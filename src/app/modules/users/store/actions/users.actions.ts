@@ -1,5 +1,6 @@
 import {IUser} from '../../models/user.model';
-import {IAction} from '../../../interfaces/ngrx';
+import {IAction} from '../../../../shared/interfaces/ngrx';
+
 
 // USER ACTIONS
 export enum UserActionTypes {

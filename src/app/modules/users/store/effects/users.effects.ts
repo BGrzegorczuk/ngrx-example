@@ -3,7 +3,7 @@ import {Actions, Effect} from '@ngrx/effects';
 import * as userActions from '../actions/users.actions';
 import {UsersService} from '../../services/users.service';
 import {Observable} from 'rxjs/Observable';
-import {IAction} from '../../../interfaces/ngrx';
+
 
 
 @Injectable()

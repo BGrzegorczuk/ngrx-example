@@ -1,0 +1,5 @@
+<article>
+  <h2>Users:</h2>
+  <app-loader *ngIf="!users"></app-loader>
+  <app-users-list *ngIf="users" [users]="users"></app-users-list>
+</article>
