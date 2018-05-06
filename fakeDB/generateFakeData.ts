@@ -12,7 +12,7 @@ const json = JSON.stringify({
   users: compiledUsersSchema.users
 }, null, 4);
 
-fs.writeFile("./src/fakeDB/db.json", json, err => {
+fs.writeFile("./fakeDB/db.json", json, err => {
   if (err) {
     console.log(err.message);
   } else {

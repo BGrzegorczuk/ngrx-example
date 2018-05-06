@@ -9,8 +9,9 @@ import { UsersService } from './services/users.service';
 
 import {StoreModule} from '@ngrx/store';
 import * as reducers from './store/reducers';
-import {UsersEffects} from './store/effects/users.effects';
+import {UsersEffects} from './store/effects';
 import {EffectsModule} from '@ngrx/effects';
+import {LoaderModule} from '../../shared/components/loader/loader.module';
 import { UserFormComponent } from './containers/user-form/user-form.component';
 import {FormsModule} from '../shared/components/forms/forms.module';
 
@@ -18,6 +19,7 @@ import {FormsModule} from '../shared/components/forms/forms.module';
 @NgModule({
   imports: [
     CommonModule,
+    LoaderModule,
     FormsModule,
     UsersRoutingModule,
     StoreModule.forFeature('users', reducers.usersReducer),

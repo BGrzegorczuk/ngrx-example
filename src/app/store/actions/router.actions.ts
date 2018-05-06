@@ -1,4 +1,4 @@
-import {IAction} from '../../interfaces/ngrx';
+import {IAction} from '../../shared/interfaces/ngrx';
 import {NavigationExtras} from '@angular/router';
 
 
