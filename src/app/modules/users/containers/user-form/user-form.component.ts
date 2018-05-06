@@ -16,6 +16,7 @@ export class UserFormComponent implements OnInit {
 
   userForm: FormGroup;
   userData: IUser;
+  genderOptions = ['male', 'female'];
 
   constructor (
     private fb: FormBuilder,
@@ -25,17 +26,26 @@ export class UserFormComponent implements OnInit {
 
   // TODO: refactor getting userId from route params; add loader & handle createForm..
   ngOnInit() {
+    this.buildForm();
     this.store.select(fromRootStore.selectRouterParams).subscribe((params: Params) => {
       this.userService.getUser(params.id).subscribe(user => {
+        console.log('user', user);
         this.userData = user;
-        this.createForm(this.userData);
+        this.fillFormWithData(this.userData);
       });
     });
     this.userForm.valueChanges.subscribe(form => console.log('form changed', form));
   }
 
-  createForm(userData: IUser) {
+  buildForm() {
     this.userForm = this.fb.group({
+      email: '',
+      gender: ''
+    });
+  }
+
+  fillFormWithData(userData: IUser) {
+    this.userForm.setValue({
       email: userData.email,
       gender: userData.gender
     });

@@ -18,7 +18,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   @Input() name = '';
   @Input() label? = '';
   id: string;
-  _value = '';
+  _value = null;
 
   get value() {
     return this._value;
@@ -47,7 +47,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
 
   propagateTouched: Function = () => {};
 
-  writeValue(value: string | null) {
+  writeValue(value: any) {
     console.log('writeValue', value);
     value ? this.value = value : null;
   }
@@ -60,8 +60,8 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
     this.propagateTouched = fn;
   }
 
-  onChange(event: any) {
-    console.log('event', event);
+  onChange(value: any) {
+    console.log('value', value);
     // this.value = (<HTMLInputElement>event.target).value;
   }
 
