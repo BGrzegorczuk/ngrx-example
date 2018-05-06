@@ -30,4 +30,13 @@ export class UsersEffects {
           return Observable.of({});
         })
     });
+
+  @Effect()
+  loadUser$ = this.actions$
+    .ofType(userActions.UserActionTypes.GET_USER_SUCCESS)
+    .switchMap((action: userActions.GetUserRequest) => {
+
+      return this.usersService.getUser(action.payload)
+        .map(user => new userActions.GetUserSuccess(user));
+    })
 }

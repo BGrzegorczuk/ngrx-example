@@ -16,4 +16,8 @@ export class UsersService {
     return this.http.get<IUser[]>(`${this.baseApiUrl}/users?_page=${page}&_limit=${limit}`);
   }
 
+  getUser(id: string|number) {
+    return this.http.get<IUser>(`${this.baseApiUrl}/users/${id}`);
+  }
+
 }

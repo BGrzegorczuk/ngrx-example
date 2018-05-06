@@ -10,7 +10,7 @@ import { UsersListItemComponent } from './components/users-list-item/users-list-
 import { UsersService } from './services/users.service';
 import {LoaderModule} from '../../shared/components/loader/loader.module';
 import {FormsModule} from '../../shared/components/forms/forms.module';
-import {UserFormComponent} from '../../users/containers/user-form/user-form.component';
+import {UserFormComponent} from './containers/user-form/user-form.component';
 import * as reducers from './store/reducers';
 import {UsersEffects} from './store/effects';
 
