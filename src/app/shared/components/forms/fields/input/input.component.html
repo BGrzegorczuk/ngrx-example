@@ -1,6 +1,7 @@
 <div class="form-group" [formGroup]="form">
   <label *ngIf="label" [for]="id">{{ label }}:</label>
   <input
+    class="form-control"
     [id]="id"
     [formControlName]="name"
     [value]="value"

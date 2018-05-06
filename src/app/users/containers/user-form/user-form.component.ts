@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {IUser} from '../../models/user.model';
+import {IUser} from '../../../modules/users/models/user.model';
+
 
 @Component({
   selector: 'app-user-form',

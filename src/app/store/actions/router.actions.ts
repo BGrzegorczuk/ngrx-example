@@ -16,18 +16,18 @@ export interface IRouterGoPayload {
   extras?: NavigationExtras;
 }
 
-export class Go implements IAction<IRouterGoPayload> {
+export class RouterGo implements IAction<IRouterGoPayload> {
   readonly type = RouterActionTypes.ROUTER_GO;
   constructor(public payload: IRouterGoPayload) {}
 }
 
-export class Back implements IAction {
+export class RouterBack implements IAction {
   readonly type = RouterActionTypes.ROUTER_BACK;
 }
 
-export class Forward implements IAction {
+export class RouterForward implements IAction {
   readonly type = RouterActionTypes.ROUTER_FORWARD;
 }
 
 export type RouterActions
-  = Go | Back | Forward;
+  = RouterGo | RouterBack | RouterForward;
