@@ -17,6 +17,10 @@ const usersSchema = {
             type: "string",
             faker: "internet.email"
           },
+          gender: {
+            type: "string",
+            pattern: "male|female"
+          },
           phone_number: {
             type: "string",
             faker: "phone.phoneNumberFormat"
@@ -65,7 +69,7 @@ const usersSchema = {
           },
           picture: "https://www.shareicon.net/data/2016/05/27/771338_man_512x512.png"
         },
-        required: ["id", "email", "phone_number", "location", "username", "password", "first_name", "last_name", "title", "picture"]
+        required: ["id", "email", "gender", "phone_number", "location", "username", "password", "first_name", "last_name", "title", "picture"]
       }
     }
   },
