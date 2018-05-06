@@ -2,6 +2,8 @@ import {Params, RouterStateSnapshot} from '@angular/router';
 import {RouterReducerState, RouterStateSerializer} from '@ngrx/router-store';
 
 
+export type IRouterState = RouterReducerState<IRouterStateUrl>;
+
 export interface IRouterStateUrl {
   url: string;
   params: Params;

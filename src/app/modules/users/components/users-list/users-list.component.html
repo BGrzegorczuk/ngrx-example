@@ -11,10 +11,9 @@
     </thead>
     <tbody>
       <tr app-users-list-item
-          *ngFor="let user of users; let i = index"
+          *ngFor="let user of users"
           [user]="user"
-          [index]="i+1"
-          (click)="onUserSelect(user, i)"
+          (click)="onUserSelect(user)"
       ></tr>
     </tbody>
   </table>

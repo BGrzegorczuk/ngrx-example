@@ -18,9 +18,9 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {}
 
-  onUserSelect(user: IUser, index: number) {
+  onUserSelect(user: IUser) {
     console.log('onUserSelect', user);
-    this.store.dispatch(new fromStore.RouterGo({ path: [ 'user', index ] }));
+    this.store.dispatch(new fromStore.RouterGo({ path: [ 'user', user.id ] }));
   }
 
 }

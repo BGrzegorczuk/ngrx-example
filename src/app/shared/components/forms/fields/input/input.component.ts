@@ -44,7 +44,6 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   ngOnInit() {
     this.id = `${this.name}Id`;
     this.type || (this.type = 'text');
-    console.log('this', this);
     this.writeValue(this.control.value);
   }
 
@@ -70,6 +69,8 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   }
 
   onBlur() {
-    this.propagateTouched();
+    if (this.control.untouched) {
+      this.propagateTouched();
+    }
   }
 }
