@@ -3,6 +3,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgSelectModule} from '@ng-select/ng-select';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
@@ -25,6 +26,7 @@ import {UsersModule} from './modules/users/users.module';
   ],
   imports: [
     BrowserModule,
+    NgSelectModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
