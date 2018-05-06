@@ -1,0 +1,14 @@
+<div class="form-group" [formGroup]="form">
+  <label *ngIf="label" [for]="id">{{ label }}:</label>
+  <ng-select
+    [id]="id"
+    [formControlName]="name"
+    [items]="options"
+    [bindLabel]="labelKey"
+    [bindValue]="valueKey"
+    (change)="onChange($event)"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+  >
+  </ng-select>
+</div>

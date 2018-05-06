@@ -1,15 +1,19 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsComponent } from './forms.component';
-import { InputComponent } from './fields/input/input.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from '@angular/forms';
+import {NgSelectModule} from '@ng-select/ng-select';
+import {FormsComponent} from './forms.component';
+import {InputComponent} from './fields/input/input.component';
+import {SelectComponent} from './fields/select/select.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
-  declarations: [FormsComponent, InputComponent],
-  exports: [ReactiveFormsModule, InputComponent]
+  declarations: [FormsComponent, InputComponent, SelectComponent],
+  exports: [ReactiveFormsModule, InputComponent, SelectComponent]
 })
 export class FormsModule { }
