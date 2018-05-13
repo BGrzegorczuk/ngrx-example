@@ -11,7 +11,7 @@ type SelectOptionType = 'string' | number | IObject<string|number>;
 })
 export class SelectComponent implements ControlValueAccessor, OnInit {
 
-  @Input() form: FormGroup;
+  @Input() parentGroup: FormGroup;
   @Input() options: SelectOptionType[];
   @Input() labelKey = 'label';
   @Input() valueKey = 'value';
@@ -34,7 +34,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   }
 
   get control(): FormControl {
-    return this.form.get(this.name) as FormControl;
+    return this.parentGroup.get(this.name) as FormControl;
   }
 
   constructor() { }

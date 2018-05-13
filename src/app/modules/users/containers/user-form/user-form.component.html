@@ -1,9 +1,8 @@
 <app-loader *ngIf="!userData"></app-loader>
 
 <form *ngIf="userData" [formGroup]="userForm">
-  <app-input name="email" label="Email" type="number" [form]="userForm"></app-input>
-  <app-select name="gender" label="Gender" [form]="userForm" [options]="genderOptions"></app-select>
+  <app-input name="email" label="Email" type="text" [parentGroup]="userForm"></app-input>
+  <app-select name="gender" label="Gender" [parentGroup]="userForm" [options]="genderOptions"></app-select>
 </form>
-
 
 {{ userForm.value | json }}

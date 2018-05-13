@@ -29,12 +29,13 @@ export class UserFormComponent implements OnInit {
     this.buildForm();
     this.store.select(fromRootStore.selectRouterParams).subscribe((params: Params) => {
       this.userService.getUser(params.id).subscribe(user => {
-        console.log('user', user);
+        // console.log('user', user);
         this.userData = user;
         this.fillFormWithData(this.userData);
       });
     });
-    this.userForm.valueChanges.subscribe(form => console.log('form changed', form));
+    this.userForm.valueChanges.subscribe(form => console.log('parentGroup value changed', form));
+    this.userForm.statusChanges.subscribe(form => console.log('parentGroup status changed', form));
   }
 
   buildForm() {
@@ -48,7 +49,7 @@ export class UserFormComponent implements OnInit {
     this.userForm.setValue({
       email: userData.email,
       gender: userData.gender
-    });
+    }, { emitEvent: false });
   }
 
 }

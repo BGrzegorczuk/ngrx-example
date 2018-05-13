@@ -26,7 +26,9 @@ import {UsersModule} from './modules/users/users.module';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers, {
+      // metaReducers
+    }),
     EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({}),
     StoreRouterConnectingModule.forRoot({

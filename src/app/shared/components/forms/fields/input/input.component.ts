@@ -1,76 +1,101 @@
-import {Component, forwardRef, Input, OnInit } from '@angular/core';
-import {ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input, OnChanges,
+  OnInit, SimpleChanges,
+  ViewChild
+} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+
+export type InputValue = string | number | null;
+
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.sass'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true
-    }
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InputComponent implements ControlValueAccessor, OnInit {
-
-  @Input() form: FormGroup;
+export class InputComponent implements OnInit, OnChanges {
+  @ViewChild('input') input: ElementRef;
+  @Input() parentGroup: FormGroup;
   @Input() name = '';
   @Input() label? = '';
   @Input() type? = '';
+  @Input() disabled? = false;
+
   id: string;
-  _value = '';
+  prevValue: InputValue;
 
-  get value() {
-    return this._value;
+  /* Getters & Setters */
+
+  get value(): InputValue {
+    return this.input.nativeElement.value;
   }
 
-  set value(val) {
-    this._value = val;
-    this.propagateChange(this._value);
-  }
 
-  get invalid(): boolean {
-    return false;
+  set value(newValue: InputValue) {
+    this.input.nativeElement.value = newValue;
+    this.prevValue = newValue;
   }
 
   get control(): FormControl {
-    return this.form.get(this.name) as FormControl;
+    return this.parentGroup.get(this.name) as FormControl;
   }
+
+  /* Lifecycle Methods */
 
   constructor() { }
 
   ngOnInit() {
+    this.initControlState();
+    this.registerHandlers();
+  }
+
+  ngOnChanges({disabled}: SimpleChanges) {
+    const disabledChanges = disabled && !disabled.firstChange && (disabled.currentValue !== disabled.previousValue);
+    if (disabledChanges) {
+      disabled.currentValue === true ? this.control.disable() : this.control.enable();
+    }
+  }
+
+  /* Component Logic */
+
+  private initControlState() {
     this.id = `${this.name}Id`;
     this.type || (this.type = 'text');
-    this.writeValue(this.control.value);
+    this.value = this.control.value;
+    this.disabled && this.control.disable({emitEvent: false});
   }
 
-  propagateChange: Function = (_: any) => {};
-
-  propagateTouched: Function = () => {};
-
-  writeValue(value: string | null) {
-    console.log('writeValue', value);
-    value ? this.value = value : null;
-  }
-
-  registerOnChange(fn: Function) {
-    this.propagateChange = fn;
-  }
-
-  registerOnTouched(fn: Function) {
-    this.propagateTouched = fn;
-  }
-
-  onChange(event: Event) {
-    this.value = (<HTMLInputElement>event.target).value;
+  private registerHandlers() {
+    this.control.registerOnDisabledChange(this.handleDisabledChange);
+    this.control.registerOnChange(this.handleValueChange);
   }
 
   onBlur() {
     if (this.control.untouched) {
-      this.propagateTouched();
+      this.control.markAsTouched();
     }
+    if (this.hasChanged()) {
+      this.control.setValue(this.value);
+      this.prevValue = this.value;
+      this.control.markAsDirty();
+    }
+  }
+
+  private hasChanged(): boolean {
+    return this.prevValue !== this.value;
+  }
+
+  /* FormControl API handlers */
+
+  private handleDisabledChange = (disabled: boolean) => {
+    this.input.nativeElement.disabled = disabled;
+  }
+
+  private handleValueChange = (newValue: any) => {
+    this.value = newValue;
   }
 }
